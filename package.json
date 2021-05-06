@@ -1,0 +1,51 @@
+{
+  "name": "wig-academy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node app.js",
+    "build": "babel app.js --out-file app-compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "proxy": "http://localhost:4242",
+    "type": "module"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-joi-validation": "^5.0.0",
+    "express-session": "^1.17.1",
+    "generate-sms-verification-code": "^1.0.5",
+    "googleapis": "^67.1.1",
+    "http": "0.0.1-security",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.5.0",
+    "nodemon": "^2.0.7",
+    "nunjucks": "^3.2.3",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "pdf-creator-node": "^2.2.2",
+    "socket.io": "2.3.0",
+    "socket.io-client": "^2.3.1",
+    "socketio-jwt": "^4.6.2",
+    "stripe": "^8.143.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "dotenv": "^8.2.0"
+  }
+}
