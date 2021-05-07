@@ -8,7 +8,7 @@ import {token} from "./Helpers/auth";
 import Passport from "./passport";
 
 const app = express();
-const port = 5000 || process.env.PORT;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
