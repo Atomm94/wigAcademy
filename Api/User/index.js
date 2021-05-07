@@ -111,7 +111,10 @@ const invitePeople = async (req, res) => {
 
 const auth_google = async (req, res) => {
     try {
-        const token = await createJwtToken(req.user._id);
+        let tok = {
+            id: req.user._id
+        }
+        const token = await createJwtToken(tok);
         res.message = 'You are login with Google!'
         return successHandler(res, {token: token, user: req.user})
     } catch (err) {
@@ -119,10 +122,21 @@ const auth_google = async (req, res) => {
     }
 };
 
+const logOut = async (req, res) => {
+    try {
+        let token = req.authorization || req.headers['authorization'];
+        token = jsonwebtoken.encode({invalid: 'invalid token'}, 'Ooops!');
+        return successHandler(res, token)
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 export {
     register,
     login,
     changePassword,
     invitePeople,
-    auth_google
+    auth_google,
+    logOut
 }

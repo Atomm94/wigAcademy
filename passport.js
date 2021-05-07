@@ -48,10 +48,8 @@ const Passport = (passport) => {
                         email: profile.emails[0].value,
                         login_method: "google",
                     });
-                    //console.log(newUser)
                     await newUser.save();
-                    //console.log(profile)
-                    //return;
+
                     return done(null, newUser);
                 } catch (e) {
                     return done(e, false);

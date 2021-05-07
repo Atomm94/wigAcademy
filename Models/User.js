@@ -1,4 +1,5 @@
 import {Schema, model} from 'mongoose';
+import {loginMethodEnum} from "../Helpers/constant";
 
 const userSchema = new Schema({
     firstName: {
@@ -19,7 +20,8 @@ const userSchema = new Schema({
     googleId: String,
     login_method: {
         type: String,
-        required: true
+        enum: Object.values(loginMethodEnum),
+        default: loginMethodEnum.LOCAL
     },
     invitedUsers: [String],
     registered: [{
