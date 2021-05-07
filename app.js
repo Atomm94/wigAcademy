@@ -19,12 +19,12 @@ app.use('/api/user/log', token);
 app.use('/api/admin/log', token);
 app.use('/api', route);
 
-app.use(require('cookie-parser')());
-app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
-}));
+// app.use(require('cookie-parser')());
+// app.use(require('express-session')({
+//     secret: 'keyboard cat',
+//     resave: true,
+//     saveUninitialized: true
+// }));
 
 Passport(passport);
 
