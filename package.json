@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node app.js",
+    "start": "babel-node app.js",
     "build": "babel app.js --out-file app-compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "proxy": "http://localhost:4242",
