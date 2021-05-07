@@ -4,9 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node --exec babel-node app.js",
+    "start": "nodemon --exec babel-node app.js",
     "build": "babel app.js --out-file app-compiled.js",
-    "clean": "rm -rf build && mkdir build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "proxy": "http://localhost:4242",
     "type": "module"
@@ -16,6 +15,7 @@
   "dependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.0-beta.6",
+    "babel-node": "0.0.1-security",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -46,6 +46,7 @@
     "stripe": "^8.143.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.0.0",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
