@@ -8,6 +8,7 @@
     "build": "babel app.js --out-file app-compiled.js",
     "clean": "rm -rf build && mkdir build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm run build",
     "proxy": "http://localhost:4242",
     "type": "module"
   },
