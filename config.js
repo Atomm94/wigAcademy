@@ -10,7 +10,7 @@ env.config();
 //     JWT_SECRET_KEY: "wigacademy@4/5/2021"
 // }
 
-mongoose.connect(process.env.DATABASE_URI, {
+mongoose.connect("mongodb+srv://At11:atmak11@cluster0.d1re6.mongodb.net/wigAcademy?retryWrites=true&w=majority", {
     useFindAndModify: true,
     useCreateIndex: true,
     useNewUrlParser: true,
