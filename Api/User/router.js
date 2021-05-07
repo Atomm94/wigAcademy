@@ -19,8 +19,8 @@ user.get(
     })
 );
 user.get("/auth/google", passport.authenticate("google"), controllers.auth_google);
-user.get('/logout', controllers.logOut);
-user.post('/register',  controllers.register);
+//user.get('/logout', controllers.logOut);
+user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
 user.post('/log/resetPassword', controllers.changePassword);
 user.post('/log/invitePeople', controllers.invitePeople);

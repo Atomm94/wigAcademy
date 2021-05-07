@@ -2,11 +2,7 @@ import {Schema, model} from 'mongoose';
 import {loginMethodEnum} from "../Helpers/constant";
 
 const userSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    fullName: {
         type: String,
         required: true
     },

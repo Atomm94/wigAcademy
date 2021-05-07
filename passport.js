@@ -47,17 +47,16 @@ const Passport = (passport) => {
                     if (existingUser) {
                         return done(null, existingUser);
                     }
-
-                    const newUser = new userModel({
-                        googleId: profile.id,
-                        firstName: profile.name.familyName,
-                        lastName: profile.name.givenName,
-                        email: profile.emails[0].value,
-                        login_method: "google",
-                    });
-                    await newUser.save();
-
-                    return done(null, newUser);
+                    console.log(profile)
+                    // const newUser = new userModel({
+                    //     googleId: profile.id,
+                    //     firstName: profile.name.familyName,
+                    //     lastName: profile.name.givenName,
+                    //     email: profile.emails[0].value,
+                    //     login_method: "google",
+                    // });
+                    // await newUser.save();
+                    return done(null, profile);
                 } catch (e) {
                     return done(e, false);
                 }

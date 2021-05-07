@@ -122,21 +122,20 @@ const auth_google = async (req, res) => {
     }
 };
 
-const logOut = async (req, res) => {
-    try {
-        let token = req.authorization || req.headers['authorization'];
-        token = jsonwebtoken.encode({invalid: 'invalid token'}, 'Ooops!');
-        return successHandler(res, token)
-    } catch (err) {
-        return errorHandler(res, err);
-    }
-}
+// const logOut = async (req, res) => {
+//     try {
+//         let token = req.authorization || req.headers['authorization'];
+//         token = jsonwebtoken.encode({invalid: 'invalid token'}, 'Ooops!');
+//         return successHandler(res, token)
+//     } catch (err) {
+//         return errorHandler(res, err);
+//     }
+// }
 
 export {
     register,
     login,
     changePassword,
     invitePeople,
-    auth_google,
-    logOut
+    auth_google
 }
