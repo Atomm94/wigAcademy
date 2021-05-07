@@ -3,6 +3,8 @@ import cors from 'cors';
 import passport from 'passport';
 import bodyParser from 'body-parser';
 import * as config from './config';
+
+require('dotenv').config()
 import route from "./Api/routes";
 import {token} from "./Helpers/auth";
 import Passport from "./passport";
