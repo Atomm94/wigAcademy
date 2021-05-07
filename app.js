@@ -19,19 +19,7 @@ app.use('/api/user/log', token);
 app.use('/api/admin/log', token);
 app.use('/api', route);
 
-// app.use(require('cookie-parser')());
-// app.use(require('express-session')({
-//     secret: 'keyboard cat',
-//     resave: true,
-//     saveUninitialized: true
-// }));
-
 Passport(passport);
-
-
-app.get('/google', (req,res) => {
-    res.status(200).json({msg: 'authorize success!'});
-})
 
 app.listen(port, () => {
     console.log(`Server started with port ${port}`);
