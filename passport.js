@@ -1,10 +1,16 @@
 import userModel from "./Models/User";
-import {heroku_config} from "./config";
 
 require('dotenv').config();
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+const heroku_config = {
+    GOOGLE_CLIENT_ID: "648273977408-pglbo43tjof4sgi362fjhl4tuec36nkd.apps.googleusercontent.com",
+    GOOGLE_CLIENT_SECRET: "h0ObgMzmdexa4qTzs3oETI5",
+    GOOGLE_CALLBACK_URL: "http://localhost:5000/api/user/auth/google",
+    JWT_SECRET_KEY: "wigacademy@4/5/2021"
+}
 
 const {
     GOOGLE_CLIENT_ID,
