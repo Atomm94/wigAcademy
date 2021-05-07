@@ -8,7 +8,6 @@
     "build": "babel app.js --out-file app-compiled.js",
     "clean": "rm -rf build && mkdir build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run build",
     "proxy": "http://localhost:4242",
     "type": "module"
   },
@@ -48,7 +47,6 @@
     "@babel/core": "^7.13.10",
     "@babel/node": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
-    "babel-cli": "^6.26.0",
     "dotenv": "^8.2.0"
   }
 }
