@@ -12,6 +12,10 @@ const {
     JWT_SECRET_KEY,
 } = process.env;
 
+console.log(GOOGLE_CLIENT_ID + '**************')
+console.log(GOOGLE_CLIENT_SECRET + '************')
+console.log(GOOGLE_CALLBACK_URL + '*************')
+
 const Passport = (passport) => {
     passport.serializeUser((user, done) => {
         done(null, user.id);
