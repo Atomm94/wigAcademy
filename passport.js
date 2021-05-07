@@ -1,4 +1,5 @@
 import userModel from "./Models/User";
+import {heroku_config} from "./config";
 
 require('dotenv').config();
 const JwtStrategy = require("passport-jwt").Strategy;
@@ -11,10 +12,6 @@ const {
     GOOGLE_CALLBACK_URL,
     JWT_SECRET_KEY,
 } = process.env;
-
-console.log(GOOGLE_CLIENT_ID + '**************')
-console.log(GOOGLE_CLIENT_SECRET + '************')
-console.log(GOOGLE_CALLBACK_URL + '*************')
 
 const Passport = (passport) => {
     passport.serializeUser((user, done) => {
@@ -33,9 +30,9 @@ const Passport = (passport) => {
     passport.use(
         new GoogleStrategy(
             {
-                clientID: GOOGLE_CLIENT_ID,
-                clientSecret: GOOGLE_CLIENT_SECRET,
-                callbackURL: GOOGLE_CALLBACK_URL,
+                clientID: heroku_config.GOOGLE_CLIENT_ID,
+                clientSecret: heroku_config.GOOGLE_CLIENT_SECRET,
+                callbackURL: heroku_config.GOOGLE_CALLBACK_URL,
             },
             async (accessToken, refreshToken, profile, done) => {
                 try {
@@ -66,7 +63,7 @@ const Passport = (passport) => {
         new JwtStrategy(
             {
                 jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-                secretOrKey: JWT_SECRET_KEY,
+                secretOrKey: heroku_config.JWT_SECRET_KEY,
             },
             async (payload, done) => {
                 try {
