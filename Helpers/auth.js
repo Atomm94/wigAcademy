@@ -8,7 +8,7 @@ const token = express();
 
 token.use('/', async (req, res, next) => {
     const jwtAuth = req.authorization || req.headers['authorization'];
-    jwt.verify(jwtAuth, process.env.JWT_SECRET_KEY, (err, user) => {
+    jwt.verify(jwtAuth, "wigacademy@4/5/2021", (err, user) => {
         if (err) {
             return errorHandler(res, err);
         }
@@ -32,25 +32,25 @@ token.get('/getData', async (req,res) => {
 })
 
 const createJwtToken = async (data) => {
-    const getToken = await jwt.sign({data: data}, process.env.JWT_SECRET_KEY);
+    const getToken = await jwt.sign({data: data}, "wigacademy@4/5/2021");
     return getToken;
 }
 
-const socketAuth = async (socket, next) => {
-    if (socket.handshake.query && socket.handshake.query.token) {
-        jwt.verify(socket.handshake.query.token, process.env.JWT_SECRET_KEY, function (err, decoded) {
-            if (err) return next(new Error('Authentication error'));
-            socket.decoded = decoded;
-            next();
-        });
-    }
-    else {
-        next(new Error('Authentication error'));
-    }
-}
+// const socketAuth = async (socket, next) => {
+//     if (socket.handshake.query && socket.handshake.query.token) {
+//         jwt.verify(socket.handshake.query.token, "wigacademy@4/5/2021", function (err, decoded) {
+//             if (err) return next(new Error('Authentication error'));
+//             socket.decoded = decoded;
+//             next();
+//         });
+//     }
+//     else {
+//         next(new Error('Authentication error'));
+//     }
+// }
 
 export {
     token,
     createJwtToken,
-    socketAuth
+    //socketAuth
 }

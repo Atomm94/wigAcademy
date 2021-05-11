@@ -2,7 +2,8 @@ import Joi from "joi";
 const validator = require('express-joi-validation').createValidator({})
 
 const createCourseSchema = Joi.object({
-    about: Joi.string().required()
+    about: Joi.string().required(),
+    price: Joi.number().required()
 })
 
 const createLessonSchema = Joi.object({

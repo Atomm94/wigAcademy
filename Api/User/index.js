@@ -1,3 +1,4 @@
+import { stripe } from "../../config";
 import {comparePassword, hashPassword} from "../../Helpers/passwordHash";
 import {errorHandler, successHandler} from "../../Helpers/responseFunctions";
 import userModel from "../../Models/User";
@@ -132,10 +133,61 @@ const auth_google = async (req, res) => {
 //     }
 // }
 
+const addNewCard = async (req, res) => {
+    try {
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id})
+
+        if (!findUser) {
+            error.message = 'User is not find!';
+            return errorHandler(res, error);
+        }
+        const {
+            cardNumber,
+            cardExpMonth,
+            cardExpYear,
+            cardCVC,
+            cardName,
+            country,
+            postal_code
+        } = req.body;
+        const customer = await stripe.customers.create(
+            {
+                email: findUser.email,
+            }
+        )
+
+        if (!cardNumber || !cardExpMonth || !cardExpYear || !cardCVC) {
+            return res.status(400).send({
+                Error: 'Please Provide All Necessary Details to save the card'
+            })
+        }
+        const cardToken = await stripe.tokens.create({
+            card: {
+                name: cardName,
+                number: cardNumber,
+                exp_month: cardExpMonth,
+                exp_year: cardExpYear,
+                cvc: cardCVC,
+                address_country: country,
+                address_zip: postal_code
+            }
+        })
+        const card = await stripe.customers.createSource(customer.id, {
+            source: `${cardToken.id}`
+        })
+        return successHandler(res, card);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 export {
     register,
     login,
     changePassword,
     invitePeople,
-    auth_google
+    auth_google,
+    addNewCard
 }

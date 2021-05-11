@@ -11,7 +11,7 @@ const packageSchema = new Schema({
         ref: 'course'
     }],
     price: {
-        type: String,
+        type: Number,
         required: true
     }
 })

@@ -24,6 +24,7 @@ user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
 user.post('/log/resetPassword', controllers.changePassword);
 user.post('/log/invitePeople', controllers.invitePeople);
+user.post('/log/addNewCard', controllers.addNewCard);
 
 
 export default user;

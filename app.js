@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/Media'));
 
 app.use('/api/user/log', token);
+app.use('/api/course/log', token);
 app.use('/api/admin/log', token);
 app.use('/api', route);
 

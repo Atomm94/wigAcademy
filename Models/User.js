@@ -27,6 +27,10 @@ const userSchema = new Schema({
     invitedBuyers: [{
         type: Schema.Types.ObjectId,
         ref: 'user'
+    }],
+    orders: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
     }]
 })
 

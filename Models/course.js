@@ -12,6 +12,10 @@ const courseSchema = new Schema({
     package: {
         type: Schema.Types.ObjectId,
         ref: 'package'
+    },
+    price: {
+        type: Number,
+        required: true
     }
 })
 
