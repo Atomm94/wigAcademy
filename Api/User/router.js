@@ -5,6 +5,7 @@ import * as controllers from './index';
 import * as validation from './validation';
 
 user.use(passport.initialize())
+
 user.get(
     "/google",
     passport.authenticate("google", {
@@ -19,12 +20,11 @@ user.get(
     })
 );
 user.get("/auth/google", passport.authenticate("google"), controllers.auth_google);
-//user.get('/logout', controllers.logOut);
 user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
 user.post('/log/resetPassword', controllers.changePassword);
-user.post('/log/invitePeople', controllers.invitePeople);
-user.post('/log/addNewCard', controllers.addNewCard);
+user.post('/log/invitePeople', validation.inviteValidation, controllers.invitePeople);
+user.post('/log/addNewCard', validation.addCardValidation, controllers.addNewCard);
 
 
 export default user;

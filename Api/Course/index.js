@@ -29,7 +29,7 @@ const createCourse = async (req, res) => {
     }
 }
 
-const getCourses = async (req, res) => {
+const getAllCourses = async (req, res) => {
     try {
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
@@ -40,6 +40,16 @@ const getCourses = async (req, res) => {
         }
         const findAllCourses = await courseModel.find();
         return successHandler(res, findAllCourses);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const getCourse = async (req, res) => {
+    try {
+        const { courseId } = req.body;
+        const findCourse = await courseModel.findOne({_id: courseId});
+        return successHandler(res, findCourse);
     } catch (err) {
         return errorHandler(res, err);
     }
@@ -138,6 +148,12 @@ const newOrder = async (req, res) => {
                     $push: {orders: order._id}
                 })
             }
+            const findInvitedCustomer = await userModel.findOne({'registered': {$in: findUser._id}});
+            if (findInvitedCustomer) {
+                await userModel.updateOne({_id: findInvitedCustomer._id}, {
+                    $push: {invitedCustomers: createCharge.customer}
+                });
+            }
             return res.status(200).send({ Order: order });
         } else {
             return res
@@ -152,6 +168,7 @@ const newOrder = async (req, res) => {
 export {
     createCourse,
     createLesson,
-    getCourses,
+    getAllCourses,
+    getCourse,
     newOrder
 }

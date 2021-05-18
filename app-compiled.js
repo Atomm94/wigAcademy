@@ -16,7 +16,7 @@ var _routes = _interopRequireDefault(require("./Api/routes"));
 
 var _auth = require("./Helpers/auth");
 
-var _passport2 = _interopRequireDefault(require("./passport"));
+var _passport2 = _interopRequireDefault(require("./Helpers/passport"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 

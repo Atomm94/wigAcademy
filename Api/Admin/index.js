@@ -1,3 +1,4 @@
+import { stripe } from "../../config";
 import {errorHandler, successHandler} from "../../Helpers/responseFunctions";
 import superAdminModel from "../../Models/superAdmin";
 import {error} from "../../Helpers/constant";
@@ -33,6 +34,19 @@ const login = async (req, res) => {
     }
 }
 
+const refundPayment = async (req, res) => {
+    try {
+        const refund = await stripe.refunds.create({
+            charge: 'ch_1IqBpRHlASHs5y6LssTHlSYE',
+        });
+        return successHandler(res, refund)
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+
 export {
-    login
+    login,
+    refundPayment
 }

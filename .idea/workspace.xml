@@ -21,36 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Admin/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Admin/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/Course/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/User/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Media/output.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Media/output.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/package.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/package.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE/checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE/stripe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE/success.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/css/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/css/normalize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/images/card-blocked.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/images/card-requires-auth.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/images/card-success.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/images/chevon-down.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/client/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIPE__/views/stripeForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIP_2/checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIP_2/client.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIP_2/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRIP_2/stripe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-compiled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/passport.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +61,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Pharmacy App" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -86,6 +69,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\WPPC\Desktop\Wig Academy\Helpers" />
       <recent name="C:\Users\WPPC\Desktop\Wig Academy\STRIPE__\views" />
       <recent name="C:\Users\WPPC\Desktop\Wig Academy\STRIPE__" />
       <recent name="C:\Users\WPPC\Desktop\Wig Academy\STRIPE" />
@@ -139,7 +123,10 @@
       <workItem from="1620303800349" duration="7320000" />
       <workItem from="1620367725493" duration="18714000" />
       <workItem from="1620627045947" duration="8514000" />
-      <workItem from="1620714474815" duration="17748000" />
+      <workItem from="1620714474815" duration="21493000" />
+      <workItem from="1620800286182" duration="13613000" />
+      <workItem from="1620886538576" duration="19747000" />
+      <workItem from="1620973147081" duration="14468000" />
     </task>
     <servers />
   </component>
@@ -163,10 +150,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617712550065" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620303797625">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620996662532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620303797625" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620996662532" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -183,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1620740910434">
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1620973254466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620740910434" />
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620973254466" />
     <state x="105" y="0" width="1513" height="747" key="dock-window-1" timestamp="1620289380412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

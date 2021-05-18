@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import * as config from './config';
 import route from "./Api/routes";
 import {token} from "./Helpers/auth";
-import Passport from "./passport";
+import Passport from "./Helpers/passport";
 
 const app = express();
 const port = process.env.PORT || 5000;

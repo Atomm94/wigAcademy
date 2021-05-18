@@ -31,8 +31,13 @@ token.get('/getData', async (req,res) => {
     }
 })
 
-const createJwtToken = async (data) => {
-    const getToken = await jwt.sign({data: data}, "wigacademy@4/5/2021");
+const createJwtToken = async (data, expire) => {
+    let getToken = await jwt.sign({data: data}, "wigacademy@4/5/2021");
+    if (expire) {
+        getToken = await jwt.sign({data: data}, "wigacademy@4/5/2021", {
+            expiresIn: expire
+        });
+    }
     return getToken;
 }
 

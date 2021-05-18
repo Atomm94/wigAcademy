@@ -93,11 +93,16 @@ const invitePeople = async (req, res) => {
             error.message = 'User is not find!';
             return errorHandler(res, error);
         }
+        const findInvitedUser = await userModel.findOne({email: email});
+        if (findInvitedUser) {
+            error.message = 'This user already exists!';
+            return errorHandler(res, error);
+        }
         let tok = {
             fromId: decodeToken.data.id,
             type: 'invite process'
         }
-        tok = await createJwtToken(tok);
+        tok = await createJwtToken(tok, "2 days");
         let fullUrl = `${req.protocol}://${req.get('host')}/api/user/register?tok=${tok}`
         await invite(findUser.email, email, fullUrl);
         await userModel.updateOne({_id: decodeToken.data.id}, {
@@ -109,6 +114,7 @@ const invitePeople = async (req, res) => {
         return errorHandler(res, err);
     }
 }
+
 
 const auth_google = async (req, res) => {
     try {
@@ -123,15 +129,6 @@ const auth_google = async (req, res) => {
     }
 };
 
-// const logOut = async (req, res) => {
-//     try {
-//         let token = req.authorization || req.headers['authorization'];
-//         token = jsonwebtoken.encode({invalid: 'invalid token'}, 'Ooops!');
-//         return successHandler(res, token)
-//     } catch (err) {
-//         return errorHandler(res, err);
-//     }
-// }
 
 const addNewCard = async (req, res) => {
     try {

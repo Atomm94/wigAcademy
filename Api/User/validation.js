@@ -13,10 +13,28 @@ const loginSchema = Joi.object({
     password: Joi.string().required().min(3).max(15).trim()
 })
 
+const addCardSchema = Joi.object({
+    cardNumber: Joi.string().required(),
+    cardExpMonth: Joi.string().max(2).required(),
+    cardExpYear: Joi.string().max(4).required(),
+    cardCVC: Joi.string().max(3).required(),
+    cardName: Joi.string().required(),
+    country: Joi.string().required(),
+    postal_code: Joi.string().required()
+})
+
+const invitePeopleSchema = Joi.object({
+    email: Joi.string().email().regex(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/).required()
+})
+
 const registerValidation = validator.body(registerSchema);
 const loginValidation = validator.body(loginSchema);
+const addCardValidation = validator.body(addCardSchema);
+const inviteValidation = validator.body(invitePeopleSchema);
 
 export {
     registerValidation,
-    loginValidation
+    loginValidation,
+    addCardValidation,
+    inviteValidation
 }

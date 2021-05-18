@@ -1,4 +1,4 @@
-import userModel from "./Models/User";
+import userModel from "../Models/User";
 
 require('dotenv').config();
 const JwtStrategy = require("passport-jwt").Strategy;
