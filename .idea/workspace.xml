@@ -25,15 +25,19 @@
       <change beforePath="$PROJECT_DIR$/Api/Admin/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Admin/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/Course/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Media/output.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Media/output.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/helperFunctions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-compiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-compiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/invitePeople.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/superAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_secret.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/convertToPDF/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/convertToPDF/template.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Pharmacy App" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -127,6 +131,22 @@
       <workItem from="1620800286182" duration="13613000" />
       <workItem from="1620886538576" duration="19747000" />
       <workItem from="1620973147081" duration="14468000" />
+      <workItem from="1621320432248" duration="8226000" />
+      <workItem from="1621409051287" duration="8366000" />
+      <workItem from="1621491703690" duration="9867000" />
+      <workItem from="1621601394817" duration="300000" />
+      <workItem from="1621604092485" duration="3719000" />
+      <workItem from="1621836925825" duration="31000" />
+      <workItem from="1621863870492" duration="1960000" />
+      <workItem from="1621867711177" duration="1286000" />
+      <workItem from="1621924025803" duration="122000" />
+      <workItem from="1621924374813" duration="19100000" />
+      <workItem from="1622010100128" duration="16119000" />
+      <workItem from="1622095341402" duration="1613000" />
+      <workItem from="1622098839008" duration="8511000" />
+      <workItem from="1622125891047" duration="648000" />
+      <workItem from="1622440320247" duration="8166000" />
+      <workItem from="1622527867318" duration="9959000" />
     </task>
     <servers />
   </component>
@@ -150,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617712550065" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620996662532">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622458441561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620996662532" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622458441561" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -170,10 +190,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1620973254466">
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1622527881108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620973254466" />
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622527881108" />
     <state x="105" y="0" width="1513" height="747" key="dock-window-1" timestamp="1620289380412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

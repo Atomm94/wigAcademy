@@ -1,4 +1,4 @@
-import send from "./email";
+import { send } from "./email";
 import {hashPassword} from "./passwordHash";
 import {errorHandler, successHandler} from "./responseFunctions";
 

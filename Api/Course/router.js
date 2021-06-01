@@ -8,6 +8,7 @@ const upload = multer({ storage: storage, fileFilter: videoFilter }).single('vid
 
 course.get('/log/getAllCourses', controllers.getAllCourses);
 course.get('/getCourse', controllers.getCourse);
+course.post('/log/createUpdatePackage', validation.packageValidation, controllers.addCoursesToPackage);
 course.post('/log/createCourse', validation.courseValidation,  controllers.createCourse);
 course.post('/log/addLesson', validation.lessonValidation,  upload, controllers.createLesson);
 course.post('/log/newOrder', controllers.newOrder);

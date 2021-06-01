@@ -1,7 +1,6 @@
 import mailer from 'nodemailer';
 import { google } from 'googleapis';
 const OAuth2 = google.auth.OAuth2;
-import smsCode from 'generate-sms-verification-code';
 import config from '../config';
 
 const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_ID, "https://developers.google.com/oauthplayground");
@@ -21,8 +20,7 @@ const send_mail = mailer.createTransport({
     }
 });
 
-const send = async (to, type) => {
-    const generatedCode = smsCode(6, {type: 'string'})
+const send = async (to, response) => {
     new Promise((res, rej) => {
         send_mail.sendMail({
             from: process.env.EMAIL,
@@ -30,8 +28,8 @@ const send = async (to, type) => {
             html:
                 '<div>' +
                 '<div style="text-align: center; font-size:1.2rem">Hi dear user</div>' +
-                '<div style="text-align: center; font-size:1.2rem; margin-top:10px">Your confirmation code</div>' +
-                '<div style="text-align: center; font-size:1.5rem;color: #ff0000; margin-top:10px">' + generatedCode + '</div>' +
+                '<div style="text-align: center; font-size:1.2rem; margin-top:10px">Response from support</div>' +
+                '<div style="text-align: center; font-size:1.5rem;color: #ff0000; margin-top:10px">' + response + '</div>' +
                 '</div>',
             subject: 'Email Verification',
             generateTextFromHTML: false
@@ -46,7 +44,7 @@ const send = async (to, type) => {
             }
         })
     })
-    return generatedCode;
+    return response;
 }
 
 

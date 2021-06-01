@@ -13,7 +13,11 @@ const superAdminSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    supportMessages: [{
+        type: Schema.Types.ObjectId,
+        ref: 'support'
+    }]
 })
 
 const superAdminModel = model('superAdmin', superAdminSchema);

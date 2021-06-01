@@ -27,14 +27,22 @@ const invitePeopleSchema = Joi.object({
     email: Joi.string().email().regex(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/).required()
 })
 
+const writeToSupport = Joi.object({
+    subject: Joi.string().required(),
+    message: Joi.string().required(),
+    userEmail: Joi.string().required()
+})
+
 const registerValidation = validator.body(registerSchema);
 const loginValidation = validator.body(loginSchema);
 const addCardValidation = validator.body(addCardSchema);
 const inviteValidation = validator.body(invitePeopleSchema);
+const supportValidation = validator.body(writeToSupport);
 
 export {
     registerValidation,
     loginValidation,
     addCardValidation,
-    inviteValidation
+    inviteValidation,
+    supportValidation
 }

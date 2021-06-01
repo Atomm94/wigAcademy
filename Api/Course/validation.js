@@ -14,10 +14,19 @@ const createLessonSchema = Joi.object({
     styles: Joi.array().items(Joi.string())
 })
 
+const createPackageSchema = Joi.object({
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    courses: Joi.array().items(Joi.string()),
+    price: Joi.number().required()
+})
+
 const courseValidation = validator.body(createCourseSchema);
 const lessonValidation = validator.body(createLessonSchema);
+const packageValidation = validator.body(createPackageSchema);
 
 export {
     courseValidation,
-    lessonValidation
+    lessonValidation,
+    packageValidation
 }

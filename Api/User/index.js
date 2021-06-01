@@ -6,6 +6,10 @@ import {error} from "../../Helpers/constant";
 import {createJwtToken} from "../../Helpers/auth";
 import jsonwebtoken from "jsonwebtoken";
 import {invite} from "../../Helpers/email";
+import path from 'path';
+import lessonModel from "../../Models/lesson";
+import courseModel from "../../Models/course";
+import supportModel from "../../Models/supportMessages";
 
 const register = async (req, res) => {
     try {
@@ -61,7 +65,7 @@ const changePassword = async (req, res) => {
         let updatePerson;
         if (password !== confirmPassword) {
             error.message = "password and confirm password is not match!"
-            return errorHandler(res, error)
+            return errorHandler(res, error);
         }
         password = await hashPassword(password);
         updatePerson = await userModel.updateOne({_id: personId}, {
@@ -77,7 +81,7 @@ const changePassword = async (req, res) => {
             }
         }
         res.message = "password reset successfully!";
-        return successHandler(res, Date.now())
+        return successHandler(res, Date.now());
     } catch (err) {
         return errorHandler(res, err);
     }
@@ -122,8 +126,8 @@ const auth_google = async (req, res) => {
             id: req.user._id
         }
         const token = await createJwtToken(tok);
-        res.message = 'You are login with Google!'
-        return successHandler(res, {token: token, user: req.user})
+        res.message = 'You are login with Google!';
+        return successHandler(res, {token: token, user: req.user});
     } catch (err) {
         return errorHandler(res, err);
     }
@@ -146,8 +150,6 @@ const addNewCard = async (req, res) => {
             cardExpYear,
             cardCVC,
             cardName,
-            country,
-            postal_code
         } = req.body;
         const customer = await stripe.customers.create(
             {
@@ -166,9 +168,7 @@ const addNewCard = async (req, res) => {
                 number: cardNumber,
                 exp_month: cardExpMonth,
                 exp_year: cardExpYear,
-                cvc: cardCVC,
-                address_country: country,
-                address_zip: postal_code
+                cvc: cardCVC
             }
         })
         const card = await stripe.customers.createSource(customer.id, {
@@ -180,11 +180,141 @@ const addNewCard = async (req, res) => {
     }
 }
 
+const downloadPDF = async (req, res) => {
+    try {
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findUser) {
+            error.message = "User is not find!";
+            return errorHandler(res, error);
+        }
+        return successHandler(res, path.join(__dirname, '../../Media/PDF/NN_instructor_guide_complete.pdf'))
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const feedbackToLesson = async (req, res) => {
+    try {
+        const { feedback } = req.body;
+        const { lessonId } = req.query;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findUser) {
+            error.message = "User is not find!";
+            return errorHandler(res, error);
+        }
+        const addFeedback = await lessonModel.updateOne({_id: lessonId}, {
+            $push: {user: decodeToken.data.id, feedback: feedback}
+        })
+        if (!addFeedback) {
+            error.message = 'lesson is not find!';
+            return errorHandler(res, error);
+        }
+        res.message = 'You are add feedback to this lesson!';
+        return successHandler(res, feedback);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const getYourCourses = async (req, res) => {
+    try {
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findOrders = await userModel.findOne({_id: decodeToken.data.id})
+            .populate('orders', 'course').select('orders');
+        if (!findOrders) {
+            error.message = "User hasn't any orders or User is not find!";
+            return errorHandler(res, error);
+        }
+        const findCourses = await courseModel.find(findOrders.course);
+        return successHandler(res, findCourses);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const getCourse = async (req, res) => {
+    try {
+        const { courseId } = req.body;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findUser) {
+            error.message = "User is not find!";
+            return errorHandler(res, error);
+        }
+        const findCourse = await courseModel.findOne({_id: courseId});
+        if (!findCourse) {
+            error.message = 'Course is not find!';
+            return errorHandler(res, error);
+        }
+        return successHandler(res, findCourse);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const writeToSupport = async (req, res) => {
+    try {
+        const { subject, message } = req.body;
+        const { superAdminId } = req.query;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findUser) {
+            error.message = 'User is not find!';
+            return errorHandler(res, error);
+        }
+        let createObj = {
+            subject: subject,
+            message: message,
+            superAdmin: superAdminId,
+            userEmail: findUser.email
+        }
+        const createSupportMessage = await supportModel.create(createObj);
+        res.message = 'Message sent to support';
+        return successHandler(res, createSupportMessage);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const changeProfileInfo = async (req, res) => {
+    try {
+        const body = req.body;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const changeProfile = await userModel.updateOne({_id: decodeToken.data.id}, body);
+        if (changeProfile.nModified === 0) {
+            error.message = 'User is not find!';
+            return errorHandler(res, error);
+        }
+        if (body.password) {
+            body.password = await hashPassword(body.password);
+        }
+        res.message = 'You change your profile';
+        return successHandler(res, null);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 export {
     register,
     login,
     changePassword,
     invitePeople,
     auth_google,
-    addNewCard
+    addNewCard,
+    downloadPDF,
+    feedbackToLesson,
+    getYourCourses,
+    getCourse,
+    writeToSupport,
+    changeProfileInfo
 }
+

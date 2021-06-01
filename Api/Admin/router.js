@@ -6,7 +6,8 @@ import multer from 'multer';
 import {storage, videoFilter} from "../../Helpers/uploadFiles";
 const upload = multer({ storage: storage, fileFilter: videoFilter }).single('video');
 
-admin.get('/refundPayment', controllers.refundPayment);
+admin.post('/log/refundPayment', controllers.refundPayment);
 admin.post('/login', validation.loginValidation, controllers.login);
+admin.post('/log/responseFromSupport', controllers.responseFromSupport);
 
 export default admin;

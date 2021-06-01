@@ -22,10 +22,10 @@ const createCourse = async (req, res) => {
             return errorHandler(res, error);
         }
         const createCourse = await courseModel.create(body);
-        res.message = 'Course is created successfully!'
+        res.message = 'Course is created successfully!';
         return successHandler(res, createCourse);
     } catch (err) {
-        return errorHandler(res, err)
+        return errorHandler(res, err);
     }
 }
 
@@ -33,10 +33,13 @@ const getAllCourses = async (req, res) => {
     try {
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
-        const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
-        if (!findAdmin) {
-            error.message = 'Admin is not find!';
-            return errorHandler(res, error);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findUser) {
+            const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
+            if (!findAdmin) {
+                error.message = 'Admin or user is not find!';
+                return errorHandler(res, error);
+            }
         }
         const findAllCourses = await courseModel.find();
         return successHandler(res, findAllCourses);
@@ -91,6 +94,32 @@ const createLesson = async (req, res) => {
         return errorHandler(res, err);
     }
 }
+
+const addCoursesToPackage = async (req, res) => {
+    try {
+        const body = req.body;
+        const { packageId } = req.query;
+        let pack;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
+        if (!findAdmin) {
+            error.message = 'Admin is not find!';
+            return errorHandler(res, error);
+        }
+        if (packageId) {
+            pack = await packageModel.updateOne({_id: packageId}, {
+                $push: {courses: body.courses}
+            })
+        } else {
+            pack = await packageModel.create(body);
+        }
+        return successHandler(res, pack);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 
 const newOrder = async (req, res) => {
     try {
@@ -170,5 +199,6 @@ export {
     createLesson,
     getAllCourses,
     getCourse,
-    newOrder
+    newOrder,
+    addCoursesToPackage
 }

@@ -20,11 +20,16 @@ user.get(
     })
 );
 user.get("/auth/google", passport.authenticate("google"), controllers.auth_google);
+user.get('/log/downloadPDF', controllers.downloadPDF);
+user.get('/log/getYourCourses', controllers.getYourCourses);
+user.get('/log/getCourse', controllers.getCourse);
 user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
 user.post('/log/resetPassword', controllers.changePassword);
 user.post('/log/invitePeople', validation.inviteValidation, controllers.invitePeople);
 user.post('/log/addNewCard', validation.addCardValidation, controllers.addNewCard);
-
+user.post('/log/feedbackToLesson', controllers.feedbackToLesson);
+user.post('/log/writeToSupport', validation.supportValidation, controllers.writeToSupport);
+user.post('/log/changeProfileInfo', controllers.changeProfileInfo);
 
 export default user;
