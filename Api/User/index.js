@@ -10,6 +10,7 @@ import path from 'path';
 import lessonModel from "../../Models/lesson";
 import courseModel from "../../Models/course";
 import supportModel from "../../Models/supportMessages";
+import superAdminModel from "../../Models/superAdmin";
 
 const register = async (req, res) => {
     try {
@@ -261,7 +262,6 @@ const getCourse = async (req, res) => {
 const writeToSupport = async (req, res) => {
     try {
         const { subject, message } = req.body;
-        const { superAdminId } = req.query;
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
         const findUser = await userModel.findOne({_id: decodeToken.data.id});
@@ -269,13 +269,17 @@ const writeToSupport = async (req, res) => {
             error.message = 'User is not find!';
             return errorHandler(res, error);
         }
+        const findSuperAdmin = await superAdminModel.find();
         let createObj = {
             subject: subject,
             message: message,
-            superAdmin: superAdminId,
+            superAdmin: findSuperAdmin[0]._id,
             userEmail: findUser.email
         }
         const createSupportMessage = await supportModel.create(createObj);
+        await superAdminModel.updateOne({_id: findSuperAdmin[0]._id}, {
+            $push: {supportMessages: createSupportMessage._id}
+        })
         res.message = 'Message sent to support';
         return successHandler(res, createSupportMessage);
     } catch (err) {

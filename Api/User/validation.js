@@ -29,8 +29,7 @@ const invitePeopleSchema = Joi.object({
 
 const writeToSupport = Joi.object({
     subject: Joi.string().required(),
-    message: Joi.string().required(),
-    userEmail: Joi.string().required()
+    message: Joi.string().required()
 })
 
 const registerValidation = validator.body(registerSchema);

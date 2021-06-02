@@ -21,23 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Admin/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Admin/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/User/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/email.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/helperFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/invitePeople.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/superAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_secret.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/convertToPDF/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/convertToPDF/template.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +131,9 @@
       <workItem from="1622098839008" duration="8511000" />
       <workItem from="1622125891047" duration="648000" />
       <workItem from="1622440320247" duration="8166000" />
-      <workItem from="1622527867318" duration="9959000" />
+      <workItem from="1622527867318" duration="12477000" />
+      <workItem from="1622615412299" duration="1179000" />
+      <workItem from="1622632772836" duration="1196000" />
     </task>
     <servers />
   </component>
@@ -170,10 +157,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617712550065" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622458441561">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622618268670">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622458441561" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622618268670" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
