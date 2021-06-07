@@ -14,6 +14,7 @@ let dataFiles;
 const createCourse = async (req, res) => {
     try {
         const body = req.body;
+        console.log(body)
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
         const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
