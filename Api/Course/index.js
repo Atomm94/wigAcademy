@@ -44,16 +44,16 @@ const createCourse = async (req, res) => {
 
 const getAllCourses = async (req, res) => {
     try {
-        const token = req.authorization || req.headers['authorization'];
-        const decodeToken = await jsonwebtoken.decode(token);
-        const findUser = await userModel.findOne({_id: decodeToken.data.id});
-        if (!findUser) {
-            const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
-            if (!findAdmin) {
-                error.message = 'Admin or user is not find!';
-                return errorHandler(res, error);
-            }
-        }
+        // const token = req.authorization || req.headers['authorization'];
+        // const decodeToken = await jsonwebtoken.decode(token);
+        // const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        // if (!findUser) {
+        //     const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
+        //     if (!findAdmin) {
+        //         error.message = 'Admin or user is not find!';
+        //         return errorHandler(res, error);
+        //     }
+        // }
         const findAllCourses = await courseModel.find();
         return successHandler(res, findAllCourses);
     } catch (err) {

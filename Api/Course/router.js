@@ -7,7 +7,7 @@ import {imageFilter, storage, videoFilter} from "../../Helpers/uploadFiles";
 const upload = multer({ storage: storage, fileFilter: videoFilter }).single('video');
 const uploadAvatar = multer({ storage: storage, fileFilter: imageFilter }).single('avatar');
 
-course.get('/log/getAllCourses', controllers.getAllCourses);
+course.get('/getAllCourses', controllers.getAllCourses);
 course.get('/getCourse', controllers.getCourse);
 course.post('/log/createUpdatePackage', validation.packageValidation, controllers.addCoursesToPackage);
 course.post('/log/createCourse', uploadAvatar,  controllers.createCourse);
