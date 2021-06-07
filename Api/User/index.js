@@ -191,7 +191,13 @@ const downloadPDF = async (req, res) => {
             return errorHandler(res, error);
         }
         let fullUrl = req.protocol + '://' + req.get('host');
-        return successHandler(res, path.join(fullUrl, '/PDF/NN_instructor_guide_complete.pdf'))
+        let obj = {
+            data: path.join(fullUrl, '/PDF/NN_instructor_guide_complete.pdf'),
+            log1: req.protocol,
+            log2: req.get("host"),
+            log3: fullUrl
+        }
+        return successHandler(res, obj)
     } catch (err) {
         return errorHandler(res, err);
     }
