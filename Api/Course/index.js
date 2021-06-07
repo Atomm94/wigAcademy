@@ -63,7 +63,7 @@ const getAllCourses = async (req, res) => {
 
 const getCourse = async (req, res) => {
     try {
-        const { courseId } = req.body;
+        const { courseId } = req.query;
         const findCourse = await courseModel.findOne({_id: courseId});
         return successHandler(res, findCourse);
     } catch (err) {
