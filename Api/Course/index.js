@@ -21,10 +21,22 @@ const createCourse = async (req, res) => {
             error.message = 'Admin is not find!';
             return errorHandler(res, error);
         }
+        dataFiles = fs.readdirSync('Media');
+        let fullUrl = req.protocol + '://' + req.get('host');
+        if(req.file) {
+            body.avatar =  fullUrl + '/' + req.file.filename;
+        }
         const createCourse = await courseModel.create(body);
         res.message = 'Course is created successfully!';
         return successHandler(res, createCourse);
     } catch (err) {
+        if (req.file) {
+            dataFiles = fs.readdirSync('Media');
+            if (dataFiles.includes(req.file.filename)) {
+                let index = dataFiles.indexOf(req.file.filename)
+                let remove = await fs.unlinkSync(`Media/${dataFiles[index]}`);
+            }
+        }
         return errorHandler(res, err);
     }
 }

@@ -1,6 +1,7 @@
 import {Schema, model} from 'mongoose';
 
 const courseSchema = new Schema({
+    avatar: String,
     about: {
         type: String,
         required: true
