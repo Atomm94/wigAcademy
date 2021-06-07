@@ -190,14 +190,8 @@ const downloadPDF = async (req, res) => {
             error.message = "User is not find!";
             return errorHandler(res, error);
         }
-        let fullUrl = req.protocol + '://' + req.get('host');
-        let obj = {
-            data: path.join(fullUrl, '/PDF/NN_instructor_guide_complete.pdf'),
-            log1: req.protocol,
-            log2: req.get("host"),
-            log3: fullUrl
-        }
-        return successHandler(res, obj)
+        //let fullUrl = req.protocol + '://' + req.get('host');
+        return successHandler(res, '/PDF/NN_instructor_guide_complete.pdf')
     } catch (err) {
         return errorHandler(res, err);
     }
