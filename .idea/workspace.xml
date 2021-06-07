@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/User/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,10 @@
       <workItem from="1622440320247" duration="8166000" />
       <workItem from="1622527867318" duration="12477000" />
       <workItem from="1622615412299" duration="1179000" />
-      <workItem from="1622632772836" duration="1196000" />
+      <workItem from="1622632772836" duration="6786000" />
+      <workItem from="1622701159554" duration="6837000" />
+      <workItem from="1622788400818" duration="137000" />
+      <workItem from="1623046669804" duration="7086000" />
     </task>
     <servers />
   </component>
@@ -157,10 +158,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617712550065" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622618268670">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622788537152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622618268670" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622788537152" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -177,10 +178,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1622527881108">
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1623046690781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622527881108" />
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1623046690781" />
     <state x="105" y="0" width="1513" height="747" key="dock-window-1" timestamp="1620289380412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
