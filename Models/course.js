@@ -6,6 +6,9 @@ const courseSchema = new Schema({
         type: String,
         required: true
     },
+    hours: Number,
+    styles: Number,
+    lessonsCount: Number,
     lessons: [{
         type: Schema.Types.ObjectId,
         ref: 'lesson'
