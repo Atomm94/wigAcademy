@@ -25,6 +25,7 @@
     "express-joi-validation": "^5.0.0",
     "express-session": "^1.17.1",
     "generate-sms-verification-code": "^1.0.5",
+    "get-video-duration": "^3.1.0",
     "googleapis": "^67.1.1",
     "http": "0.0.1-security",
     "joi": "^17.4.0",
@@ -40,7 +41,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "pdf-creator-node": "^2.2.2",
-    "socket.io": "2.3.0",
+    "socket.io": "^4.1.2",
     "socket.io-client": "^2.3.1",
     "socketio-jwt": "^4.6.2",
     "stripe": "^8.148.0"

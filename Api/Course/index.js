@@ -1,5 +1,6 @@
 import { stripe } from "../../config";
 import jsonwebtoken from "jsonwebtoken";
+const { getVideoDurationInSeconds } = require('get-video-duration');
 import superAdminModel from "../../Models/superAdmin";
 import {error} from "../../Helpers/constant";
 import {errorHandler, successHandler} from "../../Helpers/responseFunctions";
@@ -44,16 +45,6 @@ const createCourse = async (req, res) => {
 
 const getAllCourses = async (req, res) => {
     try {
-        // const token = req.authorization || req.headers['authorization'];
-        // const decodeToken = await jsonwebtoken.decode(token);
-        // const findUser = await userModel.findOne({_id: decodeToken.data.id});
-        // if (!findUser) {
-        //     const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
-        //     if (!findAdmin) {
-        //         error.message = 'Admin or user is not find!';
-        //         return errorHandler(res, error);
-        //     }
-        // }
         const findAllCourses = await courseModel.find();
         return successHandler(res, findAllCourses);
     } catch (err) {
@@ -87,8 +78,37 @@ const createLesson = async (req, res) => {
             return errorHandler(res, error);
         }
         if(req.file) {
+            let lessonsCount, hours;
             let fullUrl = req.protocol + '://' + req.get('host');
             body.video =  fullUrl + '/' + req.file.filename;
+            let time_video = await getVideoDurationInSeconds(
+                `${fullUrl}/${req.file.filename}`
+            ).then((duration) => {
+                return new Date(duration * 1000).toISOString().substr(11, 8);
+            })
+            body.lessonTime = time_video;
+            if (findCourse.lessonsCount) {
+                lessonsCount = Number(findCourse.lessonsCount) + 1;
+            } else {
+                lessonsCount = 1;
+            }
+            if (findCourse.hours) {
+                let hms1 = findCourse.hours;
+                let a = hms1.split(':');
+                let secondsDatabase = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+                let hms2 = time_video;
+                let b = hms2.split(':');
+                let secondsNew = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
+                hours = Number(secondsDatabase) + Number(secondsNew);
+                hours = new Date(hours * 1000).toISOString().substr(11, 8);
+                hours = hours.toString();
+            } else {
+                hours = time_video;
+                hours.toString();
+            }
+            await courseModel.updateOne({_id: body.course}, {
+                $set: {lessonsCount: lessonsCount, hours: hours}
+            })
         }
         const createLesson = await lessonModel.create(body);
         await courseModel.updateOne({_id: body.course}, {

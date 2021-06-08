@@ -13,6 +13,7 @@ const lessonSchema = new Schema({
         type: String,
         required: true
     },
+    lessonTime: String,
     description: String,
     styles: [String],
     feedbackFromUsers: [{

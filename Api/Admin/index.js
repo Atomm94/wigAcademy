@@ -7,6 +7,7 @@ import {createJwtToken} from "../../Helpers/auth";
 import jsonwebtoken from "jsonwebtoken";
 import supportModel from "../../Models/supportMessages";
 import {send} from "../../Helpers/email";
+import courseModel from "../../Models/course";
 
 
 const login = async (req, res) => {
@@ -73,8 +74,43 @@ const responseFromSupport = async (req, res) => {
     }
 }
 
+const getAllCourses = async (req, res) => {
+    try {
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
+        if (!findAdmin) {
+            error.message = 'Admin or user is not find!';
+            return errorHandler(res, error);
+        }
+        const findAllCourses = await courseModel.find();
+        return successHandler(res, findAllCourses);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
+const getCourse = async (req, res) => {
+    try {
+        const { courseId } = req.query;
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findAdmin = await superAdminModel.findOne({_id: decodeToken.data.id});
+        if (!findAdmin) {
+            error.message = 'Admin or user is not find!';
+            return errorHandler(res, error);
+        }
+        const findCourse = await courseModel.findOne({_id: courseId});
+        return successHandler(res, findCourse);
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 export {
     login,
     refundPayment,
-    responseFromSupport
+    responseFromSupport,
+    getAllCourses,
+    getCourse
 }
