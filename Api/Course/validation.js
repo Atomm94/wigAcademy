@@ -5,9 +5,7 @@ const createCourseSchema = Joi.object({
     avatar: Joi.string(),
     about: Joi.string().required(),
     price: Joi.number().required(),
-    hours: Joi.number(),
-    styles: Joi.number(),
-    lessonsCount: Joi.number(),
+    stylesCount: Joi.string()
 })
 
 const createLessonSchema = Joi.object({

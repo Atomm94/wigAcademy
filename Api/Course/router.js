@@ -10,7 +10,7 @@ const uploadAvatar = multer({ storage: storage, fileFilter: imageFilter }).singl
 course.get('/getAllCourses', controllers.getAllCourses);
 course.get('/getCourse', controllers.getCourse);
 course.post('/log/createUpdatePackage', validation.packageValidation, controllers.addCoursesToPackage);
-course.post('/log/createCourse', uploadAvatar,  controllers.createCourse);
+course.post('/log/createCourse', uploadAvatar, validation.courseValidation,  controllers.createCourse);
 course.post('/log/addLesson', validation.lessonValidation,  upload, controllers.createLesson);
 course.post('/log/newOrder', controllers.newOrder);
 

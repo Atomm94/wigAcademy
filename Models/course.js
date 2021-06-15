@@ -7,7 +7,7 @@ const courseSchema = new Schema({
         required: true
     },
     hours: String,
-    styles: String,
+    stylesCount: String,
     lessonsCount: String,
     lessons: [{
         type: Schema.Types.ObjectId,

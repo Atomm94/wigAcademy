@@ -1,6 +1,6 @@
 import express from'express';
 import jwt from'jsonwebtoken';
-import config from '../config';
+import * as config from '../config';
 import {successHandler, errorHandler} from "./responseFunctions";
 import userModel from "../Models/User";
 import {error} from "./constant";
