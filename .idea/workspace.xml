@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/uploadFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/uploadFiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lesson.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lesson.js" afterDir="false" />
-    </list>
+    <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +138,7 @@
       <workItem from="1623392052712" duration="766000" />
       <workItem from="1623758274463" duration="5009000" />
       <workItem from="1624258214820" duration="473000" />
-      <workItem from="1624277471794" duration="3457000" />
+      <workItem from="1624277471794" duration="4309000" />
     </task>
     <servers />
   </component>
