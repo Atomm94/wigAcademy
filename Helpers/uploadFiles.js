@@ -24,8 +24,17 @@ const videoFilter = function(req, file, cb) {
     cb(null, true);
 };
 
+const fileFilter = function(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|mp4|mov|wmv|flv|WebM|mkv|)$/)) {
+        req.fileValidationError = 'Only video files are allowed!';
+        return cb(new Error('Only video files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
 export {
     storage,
     imageFilter,
-    videoFilter
+    videoFilter,
+    fileFilter
 }

@@ -12,6 +12,7 @@ const createLessonSchema = Joi.object({
     course: Joi.string(),
     title: Joi.string(),
     video: Joi.string(),
+    image: Joi.string(),
     description: Joi.string(),
     styles: Joi.array().items(Joi.string())
 })

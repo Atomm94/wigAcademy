@@ -77,12 +77,13 @@ const createLesson = async (req, res) => {
             error.message = 'Course is not find!';
             return errorHandler(res, error);
         }
-        if(req.file) {
+        if(req.files) {
             let lessonsCount, hours;
             let fullUrl = req.protocol + '://' + req.get('host');
-            body.video =  fullUrl + '/' + req.file.filename;
+            body.image = fullUrl + '/' + req.files.image[0].filename;
+            body.video =  fullUrl + '/' + req.files.video[0].filename;
             let time_video = await getVideoDurationInSeconds(
-                `${fullUrl}/${req.file.filename}`
+                `${fullUrl}/${req.files.video[0].filename}`
             ).then((duration) => {
                 return new Date(duration * 1000).toISOString().substr(11, 8);
             })

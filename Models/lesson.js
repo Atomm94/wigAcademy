@@ -13,6 +13,7 @@ const lessonSchema = new Schema({
         type: String,
         required: true
     },
+    image: String,
     lessonTime: String,
     description: String,
     styles: [String],

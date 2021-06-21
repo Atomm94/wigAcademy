@@ -3,9 +3,14 @@ const course = express();
 import * as controllers from './index';
 import * as validation from './validation';
 import multer from 'multer';
-import {imageFilter, storage, videoFilter} from "../../Helpers/uploadFiles";
-const upload = multer({ storage: storage, fileFilter: videoFilter }).single('video');
+import {imageFilter, storage, fileFilter} from "../../Helpers/uploadFiles";
 const uploadAvatar = multer({ storage: storage, fileFilter: imageFilter }).single('avatar');
+const upload = multer({ storage: storage, fileFilter: fileFilter })
+    .fields([{
+        name: 'image', maxCount: 1
+    },{
+        name: 'video', maxCount: 1
+    }]);
 
 course.get('/getAllCourses', controllers.getAllCourses);
 course.get('/getCourse', controllers.getCourse);
