@@ -5,10 +5,6 @@ const lessonSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'course'
     },
-    title: {
-        type: String,
-        required: true
-    },
     video: {
         type: String,
         required: true
@@ -16,7 +12,10 @@ const lessonSchema = new Schema({
     image: String,
     lessonTime: String,
     description: String,
-    stylesName: String,
+    stylesName: {
+        type: String,
+        default: 'styles name'
+    },
     styles: [String],
     feedbackFromUsers: [{
         user: {
