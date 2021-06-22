@@ -55,7 +55,7 @@ const getAllCourses = async (req, res) => {
 const getCourse = async (req, res) => {
     try {
         const { courseId } = req.query;
-        const findCourse = await courseModel.findOne({_id: courseId});
+        const findCourse = await courseModel.findOne({_id: courseId}).populate('lessons');
         return successHandler(res, findCourse);
     } catch (err) {
         return errorHandler(res, err);

@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Course/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +142,8 @@
       <workItem from="1623392052712" duration="766000" />
       <workItem from="1623758274463" duration="5009000" />
       <workItem from="1624258214820" duration="473000" />
-      <workItem from="1624277471794" duration="5485000" />
+      <workItem from="1624277471794" duration="7028000" />
+      <workItem from="1624341984267" duration="10463000" />
     </task>
     <servers />
   </component>
@@ -184,10 +187,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1623392077310">
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1624342077765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1623392077310" />
+    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1624342077765" />
     <state x="105" y="0" width="1513" height="747" key="dock-window-1" timestamp="1620289380412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

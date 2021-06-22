@@ -20,3 +20,4 @@ course.post('/log/addLesson', validation.lessonValidation,  upload, controllers.
 course.post('/log/newOrder', controllers.newOrder);
 
 export default course;
+

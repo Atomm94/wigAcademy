@@ -16,6 +16,7 @@ const lessonSchema = new Schema({
     image: String,
     lessonTime: String,
     description: String,
+    stylesName: String,
     styles: [String],
     feedbackFromUsers: [{
         user: {

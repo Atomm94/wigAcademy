@@ -14,6 +14,7 @@ const createLessonSchema = Joi.object({
     video: Joi.string(),
     image: Joi.string(),
     description: Joi.string(),
+    styleName: Joi.string(),
     styles: Joi.array().items(Joi.string())
 })
 
