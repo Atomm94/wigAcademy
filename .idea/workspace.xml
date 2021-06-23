@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/course.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +144,8 @@
       <workItem from="1623758274463" duration="5009000" />
       <workItem from="1624258214820" duration="473000" />
       <workItem from="1624277471794" duration="7028000" />
-      <workItem from="1624341984267" duration="11283000" />
+      <workItem from="1624341984267" duration="15597000" />
+      <workItem from="1624429919309" duration="2885000" />
     </task>
     <servers />
   </component>
@@ -165,10 +169,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624284023579" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1624258691138">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1624371307579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1624258691138" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1624371307579" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -197,5 +201,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620290273587" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1624433052558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624433052558" />
   </component>
 </project>

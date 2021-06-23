@@ -78,7 +78,7 @@ const createLesson = async (req, res) => {
             return errorHandler(res, error);
         }
         if(req.files) {
-            let lessonsCount, hours;
+            let hours;
             let fullUrl = req.protocol + '://' + req.get('host');
             body.image = fullUrl + '/' + req.files.image[0].filename;
             body.video =  fullUrl + '/' + req.files.video[0].filename;
@@ -88,11 +88,11 @@ const createLesson = async (req, res) => {
                 return new Date(duration * 1000).toISOString().substr(11, 8);
             })
             body.lessonTime = time_video;
-            if (findCourse.lessonsCount) {
-                lessonsCount = Number(findCourse.lessonsCount) + 1;
-            } else {
-                lessonsCount = 1;
-            }
+            // if (findCourse.lessonsCount) {
+            //     lessonsCount = Number(findCourse.lessonsCount) + 1;
+            // } else {
+            //     lessonsCount = 1;
+            // }
             if (findCourse.hours) {
                 let hms1 = findCourse.hours;
                 let a = hms1.split(':');
@@ -108,7 +108,8 @@ const createLesson = async (req, res) => {
                 hours.toString();
             }
             await courseModel.updateOne({_id: body.course}, {
-                $set: {lessonsCount: lessonsCount, hours: hours}
+                $set: { hours: hours},
+                $inc: {stylesCount: body.styles.length, lessonsCount: 1}
             })
         }
         const createLesson = await lessonModel.create(body);

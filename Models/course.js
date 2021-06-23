@@ -7,8 +7,8 @@ const courseSchema = new Schema({
         required: true
     },
     hours: String,
-    stylesCount: String,
-    lessonsCount: String,
+    stylesCount: Number,
+    lessonsCount: Number,
     lessons: [{
         type: Schema.Types.ObjectId,
         ref: 'lesson'
