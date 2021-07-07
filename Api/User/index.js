@@ -290,18 +290,24 @@ const writeToSupport = async (req, res) => {
 
 const changeProfileInfo = async (req, res) => {
     try {
-        const body = req.body;
+        let { oldPass, password, retypePass } = req.body;
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
-        const changeProfile = await userModel.updateOne({_id: decodeToken.data.id}, body);
-        if (changeProfile.nModified === 0) {
+        const findProfile = await userModel.findOne({_id: decodeToken.data.id});
+        if (!findProfile) {
             error.message = 'User is not find!';
             return errorHandler(res, error);
         }
-        if (body.password) {
-            body.password = await hashPassword(body.password);
+        const compare = await comparePassword(oldPass, findProfile.password);
+        if (!compare) {
+            error.message = 'old password is not correct!';
+            return errorHandler(res, error);
         }
-        res.message = 'You change your profile';
+        password = await hashPassword(password);
+        const changeProfile = await userModel.updateOne({_id: decodeToken.data.id}, {
+            $set: {password: password}
+        });
+        res.message = 'You change your profile password!';
         return successHandler(res, null);
     } catch (err) {
         return errorHandler(res, err);

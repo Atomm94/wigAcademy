@@ -43,6 +43,14 @@ const createCourse = async (req, res) => {
     }
 }
 
+const changeCourseInfo = async (req, res) => {
+    try {
+        
+    } catch(err) {
+        return errorHandler(res, err);
+    }
+}
+
 const getAllCourses = async (req, res) => {
     try {
         const findAllCourses = await courseModel.find();

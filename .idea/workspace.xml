@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/course.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +48,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Therapy Bubble" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -145,7 +142,7 @@
       <workItem from="1624258214820" duration="473000" />
       <workItem from="1624277471794" duration="7028000" />
       <workItem from="1624341984267" duration="15597000" />
-      <workItem from="1624429919309" duration="2885000" />
+      <workItem from="1624429919309" duration="5291000" />
     </task>
     <servers />
   </component>
@@ -169,10 +166,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624284023579" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1624371307579">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1624449675286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1624371307579" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1624449675286" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
