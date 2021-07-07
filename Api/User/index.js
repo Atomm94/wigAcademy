@@ -298,6 +298,10 @@ const changeProfileInfo = async (req, res) => {
             error.message = 'User is not find!';
             return errorHandler(res, error);
         }
+        if (password !== retypePass) {
+            error.message = 'password & retype password are not match!';
+            return errorHandler(res, error);
+        }
         const compare = await comparePassword(oldPass, findProfile.password);
         if (!compare) {
             error.message = 'old password is not correct!';
