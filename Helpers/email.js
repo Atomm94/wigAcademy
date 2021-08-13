@@ -1,7 +1,7 @@
 import mailer from 'nodemailer';
 import { google } from 'googleapis';
 const OAuth2 = google.auth.OAuth2;
-import config from '../config';
+import * as config from '../config';
 
 const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_ID, "https://developers.google.com/oauthplayground");
 

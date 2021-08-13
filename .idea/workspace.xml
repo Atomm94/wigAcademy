@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d2c0a1bd-b4f9-4daf-862a-7815239a082c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Course/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Course/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/User/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Api/User/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +150,8 @@
       <workItem from="1624341984267" duration="15597000" />
       <workItem from="1624429919309" duration="5291000" />
       <workItem from="1625661707799" duration="519000" />
+      <workItem from="1628075020936" duration="5012000" />
+      <workItem from="1628855773378" duration="1683000" />
     </task>
     <servers />
   </component>
@@ -164,47 +169,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1624284023579">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624284023579" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1624449675286">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1624449675286" />
-    <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1620371835002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state width="1899" height="275" key="GridCell.Tab.0.center" timestamp="1620371835002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state width="1899" height="275" key="GridCell.Tab.0.left" timestamp="1620371835002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state width="1899" height="275" key="GridCell.Tab.0.right" timestamp="1620371835002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620371835002" />
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor" timestamp="1624342077765">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="829" y="324" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1624342077765" />
-    <state x="105" y="0" width="1513" height="747" key="dock-window-1" timestamp="1620289380412">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="105" y="0" width="1513" height="747" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1620289380412" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1620290273587">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620290273587" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1624433052558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624433052558" />
   </component>
 </project>

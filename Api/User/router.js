@@ -20,7 +20,7 @@ user.get(
     })
 );
 user.get("/auth/google", passport.authenticate("google"), controllers.auth_google);
-user.get('/log/downloadPDF', controllers.downloadPDF);
+user.get('/downloadPDF', controllers.downloadPDF);
 user.get('/log/getYourCourses', controllers.getYourCourses);
 user.get('/log/getCourse', controllers.getCourse);
 user.post('/register', validation.registerValidation, controllers.register);

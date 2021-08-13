@@ -7,10 +7,12 @@ import {createJwtToken} from "../../Helpers/auth";
 import jsonwebtoken from "jsonwebtoken";
 import {invite} from "../../Helpers/email";
 import path from 'path';
+import swal from 'sweetalert';
 import lessonModel from "../../Models/lesson";
 import courseModel from "../../Models/course";
 import supportModel from "../../Models/supportMessages";
 import superAdminModel from "../../Models/superAdmin";
+import {script} from "googleapis/build/src/apis/script";
 
 const register = async (req, res) => {
     try {
@@ -184,14 +186,16 @@ const addNewCard = async (req, res) => {
 const downloadPDF = async (req, res) => {
     try {
         const token = req.authorization || req.headers['authorization'];
-        const decodeToken = await jsonwebtoken.decode(token);
-        const findUser = await userModel.findOne({_id: decodeToken.data.id});
-        if (!findUser) {
-            error.message = "User is not find!";
-            return errorHandler(res, error);
-        }
+        // const decodeToken = await jsonwebtoken.decode(token);
+        // const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        // if (!findUser) {
+        //     error.message = "User is not find!";
+        //     return errorHandler(res, error);
+        // }
+        //console.alert('change to premium account@!');
         //let fullUrl = req.protocol + '://' + req.get('host');
-        return successHandler(res, '/PDF/NN_instructor_guide_complete.pdf')
+       // return successHandler(res, '/PDF/NN_instructor_guide_complete.pdf')
+        return successHandler(res, null);
     } catch (err) {
         return errorHandler(res, err);
     }
