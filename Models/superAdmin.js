@@ -28,6 +28,7 @@ const superAdminModel = model('superAdmin', superAdminSchema);
     const findSuperAdmin = await superAdminModel.findOne({email: 'info@pablo-kuemin.com'});
     if (!findSuperAdmin) {
         const registerSuperAdmin = await new superAdminModel({
+            fullName: 'Pablo Kuemin',
             email: 'info@pablo-kuemin.com',
             password: 'Newpas1234'
         })
