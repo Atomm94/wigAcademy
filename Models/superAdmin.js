@@ -23,13 +23,13 @@ const superAdminSchema = new Schema({
 const superAdminModel = model('superAdmin', superAdminSchema);
 
 (async function () {
-    let Password = await hashPassword(process.env.SUPER_ADMIN_PASSWORD);
-    let Email = process.env.SUPER_ADMIN_EMAIL;
-    const findSuperAdmin = await superAdminModel.findOne({email: Email});
+    let Password = await hashPassword('Newpas1234');
+    //let Email = process.env.SUPER_ADMIN_EMAIL;
+    const findSuperAdmin = await superAdminModel.findOne({email: 'info@pablo-kuemin.com'});
     if (!findSuperAdmin) {
         const registerSuperAdmin = await new superAdminModel({
-            email: Email,
-            password: Password
+            email: 'info@pablo-kuemin.com',
+            password: 'Newpas1234'
         })
 
         await registerSuperAdmin.save((err) => {

@@ -24,23 +24,6 @@ mongoose.connect(url, {
     .then(_ => console.log('Database connect successfully!'))
     .catch(err => console.log(`Database connect error: ${err}`))
 
-    (async function () {
-        try {
-            const findSuperAdmin = await superAdminModel.find();
-            if (!findSuperAdmin) {
-                let obj = {
-                    fullName: 'Pablo Kuemin',
-                    email: process.env.SUPER_ADMIN_EMAIL,
-                    password: process.env.SUPER_ADMIN_PASSWORD
-                }
-                await superAdminModel.create(obj);
-                console.log('Super admin registered!');
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    })
-
 
 export {
     stripe
