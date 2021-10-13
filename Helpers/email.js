@@ -1,58 +1,56 @@
 import mailer from 'nodemailer';
-import { google } from 'googleapis';
-const OAuth2 = google.auth.OAuth2;
 import * as config from '../config';
 
-const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_ID, "https://developers.google.com/oauthplayground");
 
-oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+const send = async (to, subject, msg) => {
+    new Promise(async (res, rej) => {
 
+        let transporter = mailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.email_service_test_email,
+                pass: process.env.email_service_test_password
+            }
+        });
 
-const send_mail = mailer.createTransport({
-    service: 'gmail',
-    auth: {
-        type: "OAuth2",
-        user: process.env.EMAIL,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: oauth2Client.getAccessTokenAsync
-    }
-});
-
-const send = async (to, response) => {
-    new Promise((res, rej) => {
-        send_mail.sendMail({
-            from: process.env.EMAIL,
+        let mailOptions = {
+            from: process.env.SUPER_ADMIN_EMAIL,
             to: to,
+            subject: subject,
             html:
                 '<div>' +
-                '<div style="text-align: center; font-size:1.2rem">Hi dear user</div>' +
-                '<div style="text-align: center; font-size:1.2rem; margin-top:10px">Response from support</div>' +
-                '<div style="text-align: center; font-size:1.5rem;color: #ff0000; margin-top:10px">' + response + '</div>' +
+                '<div style="text-align: center; font-size:1.2rem">Hello from Wig Academy</div>' +
+                '<div style="text-align: center; font-size:1.2rem; margin-top:10px">' + subject + '</div>' +
+                '<div style="text-align: center; font-size:1.5rem;color: #ff0000; margin-top:10px">' + msg + '</div>' +
                 '</div>',
-            subject: 'Email Verification',
-            generateTextFromHTML: false
-        }, function (err, info) {
-            if (err) {
-                console.log(err);
-                res(false);
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
             }
-            if (info) {
-                send_mail.close();
-                res(true);
-            }
-        })
+        });
     })
-    return response;
+    return subject;
 }
 
 
 const invite = async (from, to, tokUrl) => {
     new Promise((res, rej) => {
-        send_mail.sendMail({
-            from: process.env.EMAIL,
+        let transporter = mailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.email_service_test_email,
+                pass: process.env.email_service_test_password
+            }
+        });
+
+        let mailOptions = {
+            from: from,
             to: to,
+            subject: 'Email Verification',
             html:
                 '<div>' +
                 '<div style="text-align: center; font-size:1.2rem">Hi dear user</div>' +
@@ -60,24 +58,23 @@ const invite = async (from, to, tokUrl) => {
                 '<div style="text-align: center; font-size:1.2rem; margin-top:10px">Your register link</div>' +
                 '<div style="text-align: center; font-size:1.5rem;color: #ff0000; margin-top:10px">' + tokUrl + '</div>' +
                 '</div>',
-            subject: 'Email Verification',
-            generateTextFromHTML: false
-        }, function (err, info) {
-            if (err) {
-                console.log(err);
-                res(false);
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
             }
-            if (info) {
-                send_mail.close();
-                res(true);
-            }
-        })
+        });
     })
 }
+
 
 export {
     send,
     invite
 };
+
 
 

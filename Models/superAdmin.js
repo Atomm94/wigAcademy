@@ -30,7 +30,7 @@ const superAdminModel = model('superAdmin', superAdminSchema);
         const registerSuperAdmin = await new superAdminModel({
             fullName: 'Pablo Kuemin',
             email: 'info@pablo-kuemin.com',
-            password: 'Newpas1234'
+            password: Password
         })
 
         await registerSuperAdmin.save((err) => {

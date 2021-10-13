@@ -14,7 +14,6 @@ const url = `mongodb://127.0.0.1:27017/wigAcademy`;
 
 const Stripe_Key = 'sk_test_51IaFWMHlASHs5y6L1umdBqkvs63efYNDyOsuRjf6RnNwjt0ym5NdesANBjWSjx5MY9nSQaiaZ8ISnO6N6KP2AHv900RJbpWelv';
 const stripe = require("stripe")(Stripe_Key);
-
 mongoose.connect(url, {
     useFindAndModify: true,
     useCreateIndex: true,

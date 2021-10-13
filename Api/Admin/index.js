@@ -66,7 +66,7 @@ const responseFromSupport = async (req, res) => {
             error.message = 'Support message is not find!';
             return errorHandler(res, error);
         }
-        const sendMessageFromSupport = await send(findSupportMessage.userEmail, response);
+        const sendMessageFromSupport = await send(findSupportMessage.userEmail, response, 'response from support');
         res.message = 'Response from support was sent!';
         return successHandler(res, sendMessageFromSupport);
     } catch (err) {

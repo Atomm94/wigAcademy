@@ -12,7 +12,7 @@ const lessonSchema = new Schema({
     image: String,
     lessonTime: String,
     description: String,
-    stylesName: {
+    styleName: {
         type: String,
         default: 'styles name'
     },

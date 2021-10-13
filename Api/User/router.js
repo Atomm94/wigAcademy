@@ -23,13 +23,14 @@ user.get("/auth/google", passport.authenticate("google"), controllers.auth_googl
 user.get('/downloadPDF', controllers.downloadPDF);
 user.get('/log/getYourCourses', controllers.getYourCourses);
 user.get('/log/getCourse', controllers.getCourse);
+user.get('/log/forgotPass', controllers.forgotPassword);
 user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
-user.post('/log/resetPassword', controllers.changePassword);
 user.post('/log/invitePeople', validation.inviteValidation, controllers.invitePeople);
 user.post('/log/addNewCard', validation.addCardValidation, controllers.addNewCard);
 user.post('/log/feedbackToLesson', controllers.feedbackToLesson);
 user.post('/log/writeToSupport', validation.supportValidation, controllers.writeToSupport);
-user.post('/log/changeProfileInfo', controllers.changeProfileInfo);
+user.put('/log/changeProfileInfo', controllers.changeProfileInfo);
+user.put('/changePass', controllers.changePassword);
 
 export default user;

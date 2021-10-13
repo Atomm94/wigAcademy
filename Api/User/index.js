@@ -5,7 +5,7 @@ import userModel from "../../Models/User";
 import {error} from "../../Helpers/constant";
 import {createJwtToken} from "../../Helpers/auth";
 import jsonwebtoken from "jsonwebtoken";
-import {invite} from "../../Helpers/email";
+import {invite, send} from "../../Helpers/email";
 import path from 'path';
 import swal from 'sweetalert';
 import lessonModel from "../../Models/lesson";
@@ -35,8 +35,8 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         let tok, sendObj = {};
-        const { email, password } = req.body;
-        const findUserWithEmail = await userModel.findOne({email: email});
+        let { email, password } = req.body;
+        const findUserWithEmail = await userModel.findOne({email: email} );
         if (!findUserWithEmail) {
             error.message = 'User with this email is not find!';
             return errorHandler(res, error);
@@ -50,6 +50,7 @@ const login = async (req, res) => {
             id: findUserWithEmail._id
         }
         const token = await createJwtToken(tok);
+
         sendObj = {
             Data: findUserWithEmail,
             Token: token
@@ -61,21 +62,37 @@ const login = async (req, res) => {
     }
 }
 
+const forgotPassword = async (req, res) => {
+    try {
+        const token = req.authorization || req.headers['authorization'];
+        const decodeToken = await jsonwebtoken.decode(token);
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        const fullUrl = req.protocol + '://' + req.get('host') + '/api/user/changePass';
+        const newLink = `${fullUrl}?us=${token}&date=${new Date().toLocaleDateString()}`;
+        const sendEmail = await send(findUser.email,  'Please click on this link', newLink);
+        res.message = 'Reset link is successfully sent!';
+        return successHandler(res, null)
+    } catch (err) {
+        return errorHandler(res, err);
+    }
+}
+
 const changePassword = async (req, res) => {
     try {
-        let { password, confirmPassword } = req.body;
-        const { personId } = req.query;
+        let { password, confirmPass } = req.body;
+        const token = req.query.us;
+        const decodeToken = await jsonwebtoken.decode(token);
         let updatePerson;
-        if (password !== confirmPassword) {
-            error.message = "password and confirm password is not match!"
+        if (password !== confirmPass) {
+            error.message = "password and confirm password is not match!";
             return errorHandler(res, error);
         }
         password = await hashPassword(password);
-        updatePerson = await userModel.updateOne({_id: personId}, {
+        updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
             $set: {password: password, updatedAt: Date.now()}
         })
         if (updatePerson.nModified === 0) {
-            updatePerson = await userModel.updateOne({_id: personId}, {
+            updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
                 $set: {password: password, updatedAt: Date.now()}
             })
             if (updatePerson.nModified === 0) {
@@ -335,6 +352,8 @@ export {
     getYourCourses,
     getCourse,
     writeToSupport,
-    changeProfileInfo
+    changeProfileInfo,
+    forgotPassword
 }
+
 
