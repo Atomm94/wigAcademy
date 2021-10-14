@@ -23,7 +23,7 @@ user.get("/auth/google", passport.authenticate("google"), controllers.auth_googl
 user.get('/downloadPDF', controllers.downloadPDF);
 user.get('/log/getYourCourses', controllers.getYourCourses);
 user.get('/log/getCourse', controllers.getCourse);
-user.get('/log/forgotPass', controllers.forgotPassword);
+user.post('/forgotPass', controllers.forgotPassword);
 user.post('/register', validation.registerValidation, controllers.register);
 user.post('/login', validation.loginValidation, controllers.login);
 user.post('/log/invitePeople', validation.inviteValidation, controllers.invitePeople);

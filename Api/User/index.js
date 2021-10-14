@@ -64,9 +64,9 @@ const login = async (req, res) => {
 
 const forgotPassword = async (req, res) => {
     try {
-        const token = req.authorization || req.headers['authorization'];
-        const decodeToken = await jsonwebtoken.decode(token);
-        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        let { email } = req.query;
+        const findUser = await userModel.findOne({email: email});
+        const token = await createJwtToken({id: findUser._id});
         const fullUrl = req.protocol + '://' + req.get('host') + '/api/user/changePass';
         const newLink = `${fullUrl}?us=${token}&date=${new Date().toLocaleDateString()}`;
         const sendEmail = await send(findUser.email,  'Please click on this link', newLink);
@@ -82,6 +82,7 @@ const changePassword = async (req, res) => {
         let { password, confirmPass } = req.body;
         const token = req.query.us;
         const decodeToken = await jsonwebtoken.decode(token);
+        console.log(decodeToken)
         let updatePerson;
         if (password !== confirmPass) {
             error.message = "password and confirm password is not match!";
