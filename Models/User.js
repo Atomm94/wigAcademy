@@ -28,7 +28,8 @@ const userSchema = new Schema({
     orders: [{
         type: Schema.Types.ObjectId,
         ref: 'order'
-    }]
+    }],
+    code: String
 })
 
 const userModel = model('user', userSchema);

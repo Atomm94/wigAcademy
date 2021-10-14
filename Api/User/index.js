@@ -67,9 +67,12 @@ const forgotPassword = async (req, res) => {
         let { email } = req.query;
         const findUser = await userModel.findOne({email: email});
         const token = await createJwtToken({id: findUser._id});
-        const fullUrl = req.protocol + '://' + req.get('host') + '/api/user/changePass';
-        const newLink = `${fullUrl}?us=${token}&date=${new Date().toLocaleDateString()}`;
-        const sendEmail = await send(findUser.email,  'Please click on this link', newLink);
+        let code = Math.floor(100000 + Math.random() * 900000);
+        code = code.toString();
+        await userModel.updateOne({email: email}, {
+            $set: {code: code}
+        })
+        const sendEmail = await send(findUser.email,  'Please click on this link', code);
         res.message = 'Reset link is successfully sent!';
         return successHandler(res, null)
     } catch (err) {
@@ -79,10 +82,14 @@ const forgotPassword = async (req, res) => {
 
 const changePassword = async (req, res) => {
     try {
-        let { password, confirmPass } = req.body;
-        const token = req.query.us;
+        let { password, confirmPass, code } = req.body;
+        const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
-        console.log(decodeToken)
+        const findUser = await userModel.findOne({_id: decodeToken.data.id});
+        if (findUser.code !== code) {
+            error.message = 'Invalid code'
+            return errorHandler(res, error);
+        }
         let updatePerson;
         if (password !== confirmPass) {
             error.message = "password and confirm password is not match!";
@@ -90,11 +97,11 @@ const changePassword = async (req, res) => {
         }
         password = await hashPassword(password);
         updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
-            $set: {password: password, updatedAt: Date.now()}
+            $set: {password: password, updatedAt: Date.now(), code: null}
         })
         if (updatePerson.nModified === 0) {
             updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
-                $set: {password: password, updatedAt: Date.now()}
+                $set: {password: password, updatedAt: Date.now(), code: null}
             })
             if (updatePerson.nModified === 0) {
                 error.message = "User is not find!";
