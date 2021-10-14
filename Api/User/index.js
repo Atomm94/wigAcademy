@@ -66,13 +66,17 @@ const forgotPassword = async (req, res) => {
     try {
         let { email } = req.query;
         const findUser = await userModel.findOne({email: email});
-        const token = await createJwtToken({id: findUser._id});
         let code = Math.floor(100000 + Math.random() * 900000);
         code = code.toString();
+        const findUserByCode = await userModel.findOne({code: code})
+        if (findUserByCode) {
+            code = Math.floor(100000 + Math.random() * 900000)
+            code = code.toString()
+        }
         await userModel.updateOne({email: email}, {
             $set: {code: code}
         })
-        const sendEmail = await send(findUser.email,  'Please click on this link', code);
+        const sendEmail = await send(findUser.email,  'Your verify code', code);
         res.message = 'Reset link is successfully sent!';
         return successHandler(res, null)
     } catch (err) {
@@ -85,8 +89,8 @@ const changePassword = async (req, res) => {
         let { password, confirmPass, code } = req.body;
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
-        const findUser = await userModel.findOne({_id: decodeToken.data.id});
-        if (findUser.code !== code) {
+        const findUserByCode = await userModel.findOne({code: code});
+        if (!findUserByCode) {
             error.message = 'Invalid code'
             return errorHandler(res, error);
         }
@@ -96,11 +100,11 @@ const changePassword = async (req, res) => {
             return errorHandler(res, error);
         }
         password = await hashPassword(password);
-        updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
+        updatePerson = await userModel.updateOne({code: code}, {
             $set: {password: password, updatedAt: Date.now(), code: null}
         })
         if (updatePerson.nModified === 0) {
-            updatePerson = await userModel.updateOne({_id: decodeToken.data.id}, {
+            updatePerson = await userModel.updateOne({code: code}, {
                 $set: {password: password, updatedAt: Date.now(), code: null}
             })
             if (updatePerson.nModified === 0) {
