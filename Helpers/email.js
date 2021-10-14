@@ -11,8 +11,8 @@ const send = async (to, subject, msg) => {
             port: 465,
             secure: true,
             auth: {
-                user: process.env.email_service_test_email,
-                pass: process.env.email_service_test_password
+                user: "ilovecoding777@gmail.com",
+                pass: "webprojects"
             }
         });
 
@@ -45,8 +45,8 @@ const invite = async (from, to, tokUrl) => {
         let transporter = mailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.email_service_test_email,
-                pass: process.env.email_service_test_password
+                user: "ilovecoding777@gmail.com",
+                pass: "webprojects"
             }
         });
 
