@@ -7,6 +7,9 @@ const send = async (to, subject, msg) => {
 
         let transporter = mailer.createTransport({
             service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: process.env.email_service_test_email,
                 pass: process.env.email_service_test_password
