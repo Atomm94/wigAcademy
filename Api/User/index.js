@@ -64,7 +64,7 @@ const login = async (req, res) => {
 
 const forgotPassword = async (req, res) => {
     try {
-        let { email } = req.query;
+        let { email } = req.body;
         const findUser = await userModel.findOne({email: email});
         let code = Math.floor(100000 + Math.random() * 900000);
         code = code.toString();
