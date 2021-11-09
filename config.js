@@ -9,10 +9,10 @@ const MONGO_PASSWORD = 'pablo123';
 const MONGO_HOSTNAME = '127.0.0.1';
 const MONGO_PORT = '27017';
 const MONGO_DB = 'wigAcademy';
-// "mongodb+srv://At11:atmak11@cluster0.d1re6.mongodb.net/wigAcademy?retryWrites=true&w=majority"
+
 const url = `mongodb://127.0.0.1:27017/wigAcademy`;
 
-const Stripe_Key = 'sk_test_51IaFWMHlASHs5y6L1umdBqkvs63efYNDyOsuRjf6RnNwjt0ym5NdesANBjWSjx5MY9nSQaiaZ8ISnO6N6KP2AHv900RJbpWelv';
+const Stripe_Key = 'sk_test_4eC39HqLyjWDarjtT1zdp7dc';
 const stripe = require("stripe")(Stripe_Key);
 mongoose.connect(url, {
     useFindAndModify: true,

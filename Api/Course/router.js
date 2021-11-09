@@ -6,11 +6,7 @@ import multer from 'multer';
 import {imageFilter, storage, fileFilter} from "../../Helpers/uploadFiles";
 const uploadAvatar = multer({ storage: storage, fileFilter: imageFilter }).single('avatar');
 const upload = multer({ storage: storage, fileFilter: fileFilter })
-    .fields([{
-        name: 'image', maxCount: 1
-    },{
-        name: 'video', maxCount: 1
-    }]);
+    .single('video');
 
 course.get('/getAllCourses', controllers.getAllCourses);
 course.get('/getCourse', controllers.getCourse);

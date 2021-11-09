@@ -17,7 +17,7 @@ const imageFilter = function(req, file, cb) {
 };
 
 const videoFilter = function(req, file, cb) {
-    if (!file.originalname.match(/\.(mp4|mov|wmv|flv|WebM|mkv|)$/)) {
+    if (!file.originalname.match(/\.(MP4|mov|wmv|flv|WebM|mkv|)$/)) {
         req.fileValidationError = 'Only video files are allowed!';
         return cb(new Error('Only video files are allowed!'), false);
     }

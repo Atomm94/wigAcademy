@@ -10,7 +10,7 @@ const createCourseSchema = Joi.object({
 const createLessonSchema = Joi.object({
     course: Joi.string(),
     title: Joi.string(),
-    video: Joi.string(),
+    // video: Joi.string(),
     image: Joi.string(),
     description: Joi.string(),
     styleName: Joi.string(),
