@@ -72,6 +72,7 @@ const getCourse = async (req, res) => {
 
 const createLesson = async (req, res) => {
     try {
+        return res.json({message: 'sssssssss', status: 200});
         const body = req.body;
         const token = req.authorization || req.headers['authorization'];
         const decodeToken = await jsonwebtoken.decode(token);
